@@ -15,6 +15,7 @@ private:
     void saveClientToBinaryFile();
     void saveClientToTextFile();
 
+
 public:
     Menu();
 };
