@@ -12,8 +12,8 @@ private:
 
     void display();
     void addClient();
-    void saveToBinary();
-    void saveToFile();
+    void saveClientToBinaryFile();
+    void saveClientToTextFile();
 
 public:
     Menu();
