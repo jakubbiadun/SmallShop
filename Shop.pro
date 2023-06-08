@@ -5,7 +5,9 @@ CONFIG -= qt
 
 SOURCES += \
         client.cpp \
-        main.cpp
+        main.cpp \
+        menu.cpp
 
 HEADERS += \
-    client.h
+    client.h \
+    menu.h
