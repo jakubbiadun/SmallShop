@@ -93,7 +93,17 @@ void Menu::showOrders()
 
 void Menu::saveOrdersToTextFile()
 {
-
+    ofstream file("orders.txt");
+    if(file.is_open()){
+        for(auto&order:orders){
+            file << order.getProduct() << " " << order.getAmount() << " " << order.getVat() << " " << order.getPrice() << " " << order.getPaymentMethod() << endl;
+        }
+        file.close();
+        cout << "Lista zamówień została zapisana do pliku tekstowego" << endl;
+    }
+    else{
+        cout << "Podczas otwierania pliku nastąpił błąd" << endl;
+    }
 }
 
 void Menu::saveOrdersToBinaryFile()
