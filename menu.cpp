@@ -108,7 +108,17 @@ void Menu::saveOrdersToTextFile()
 
 void Menu::saveOrdersToBinaryFile()
 {
-
+    ofstream file("orders.bin", ios::binary);
+    if(file.is_open()){
+        for(auto& Order:orders){
+            file.write(reinterpret_cast<char*>(&orders), sizeof(Order));
+        }
+        file.close();
+        cout << "Lista zamówień została zapisana do pliku binarnego" << endl;
+    }
+    else{
+        cout << "Podczas otwierania pliku nastąpił błąd" << endl;
+    }
 }
 
 void Menu::showProducts()
