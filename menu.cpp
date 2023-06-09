@@ -64,7 +64,51 @@ void Menu::saveClientToTextFile()
     }
 }
 
-Menu::Menu()
+void Menu::addOrder()
+{
+    string product;
+    int amount;
+    float vat;
+    double price;
+    paymentMethod type;
+    // dopytac o bledy
+    Order nOrder(product, amount, vat, price, type);
+    orders.push_back(nOrder);
+    cout << "Nowe zamówienie zostało dodane" << endl;
+}
+
+void Menu::editOrder()
 {
 
 }
+
+void Menu::showOrders()
+{
+    cout << "Zamówienia: " << endl;
+    for(auto&order : orders){
+        order.showOrders();
+        cout << endl;
+    }
+}
+
+void Menu::saveOrdersToTextFile()
+{
+
+}
+
+void Menu::saveOrdersToBinaryFile()
+{
+
+}
+
+void Menu::showProducts()
+{
+
+}
+
+void Menu::start()
+{
+
+}
+
+
