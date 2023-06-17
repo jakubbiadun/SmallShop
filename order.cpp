@@ -1,7 +1,7 @@
 #include "order.h"
 #include <iostream>
 #include <string>
-Order::Order(string product, int amount, float vat, double price, paymentMethod type): product(product), amount(amount), vat(vat), price(price), type(type)
+Order::Order(string product, int amount, float vat, double price, paymentMethod type, string &clientName, int value): product(product), amount(amount), vat(vat), price(price), type(type), clientName(clientName), value(value)
 {
 
 }
@@ -26,9 +26,19 @@ double Order::getPrice()
     return price;
 }
 
-string Order::getPaymentMethod()
+paymentMethod Order::getPaymentMethod()
 {
-    return static_cast<paymentMethod>(type); // czemu plujesz bledem
+    return type; // czemu plujesz bledem
+}
+
+string Order::getClientName()
+{
+    return clientName;
+}
+
+float Order::getValue()
+{
+    return value;
 }
 
 void Order::showOrders()

@@ -33,3 +33,23 @@ void Client::showClientsData()
          << "Adres dostawy: " << address << endl
          << "Płeć: " << gender << endl;
 }
+
+void Client::setFirstName(string &firstName)
+{
+    this->firstName=firstName;
+}
+
+void Client::setLastName(string &lastName)
+{
+    this->lastName=lastName;
+}
+
+void Client::setAddress(string &address)
+{
+    this->address=address;
+}
+
+void Client::setGender(string gender)
+{
+    this->gender=gender;
+}

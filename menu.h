@@ -11,9 +11,11 @@ class Menu{
 private:
     vector<Client> clients;
     vector<Order> orders;
+    vector<string> productsFromFile();
 
     void display();
     void addClient();
+    void editClient();
     void saveClientToBinaryFile();
     void saveClientToTextFile();
     void addOrder();
@@ -21,7 +23,7 @@ private:
     void showOrders();
     void saveOrdersToTextFile();
     void saveOrdersToBinaryFile();
-    void showProducts();
+    void showProducts(const vector<string>& availableProducts);
 
 
 public:

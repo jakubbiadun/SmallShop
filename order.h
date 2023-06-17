@@ -13,14 +13,18 @@ private:
     float vat;
     double price;
     paymentMethod type;
+    string clientName;
+    float value;
 
 public:
-    Order(string product, int amount, float vat, double price, paymentMethod type);
+    Order(string product, int amount, float vat, double price, paymentMethod type, string &clientName, float value);
     string getProduct();
     int getAmount();
     float getVat();
     double getPrice();
-    string getPaymentMethod();
+    paymentMethod getPaymentMethod();
+    string getClientName();
+    float getValue();
     void showOrders();
 };
 

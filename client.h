@@ -1,7 +1,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 #include <string>
-
+#include <iostream>
 using namespace std;
 
 class Client{
@@ -19,6 +19,13 @@ public:
     string getGender();
 
     void showClientsData();
+
+    //do edycji danych klienta potrzeba czegos
+    // do edycji klienta
+    void setFirstName(string &firstName);
+    void setLastName(string &lastName);
+    void setAddress(string &address);
+    void setGender(string gender);
 };
 
 #endif // CLIENT_H
