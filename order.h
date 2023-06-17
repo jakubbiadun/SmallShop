@@ -26,6 +26,15 @@ public:
     string getClientName();
     float getValue();
     void showOrders();
+
+    //do edycji
+    void setProduct(string &product);
+    void setAmount(int amount);
+    void setVat(float vat);
+    void setPrice(double price);
+    void setPaymentMethod(paymentMethod type);
+    void setClientName(string &clientName);
+    void setValue(float value);
 };
 
 #endif // ORDER_H

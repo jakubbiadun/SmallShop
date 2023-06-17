@@ -105,14 +105,14 @@ void Menu::addOrder()
     double price = 0.0;
     paymentMethod type;
     // dopytac o bledy
-    cout << "Klienic: " << endl;
+    cout << "Lista klientów: " << endl;
     for(auto&client:clients){
         cout << client.getFirstName() << " " << client.getLastName() << endl;
     }
     cout << "Wprowadź imie i nazwisko klienta: ";
     cin.ignore();
     getline(cin, clientName);
-    cout << "Dostepne produkty: " << endl;
+    cout << "Dostepne produkty(nazwa, ilosc, vat, cena): " << endl;
     showProducts(availableProducts);
     cout << "Nazwa produktu: ";
     getline(cin,productName);
@@ -132,15 +132,42 @@ void Menu::addOrder()
 
 void Menu::editOrder()
 {
+    vector<string> availableProducts = productsFromFile();
     unsigned long orderNumber;
     showOrders();
     cout << "Podaj numer zamowienia do edycji: ";
     cin >> orderNumber;
-    if(orderNumber >=0 && orderNumber <orders.size()){
+    if(orderNumber > 0 && orderNumber < orders.size()){
         string productName, clientName;
+        paymentMethod type;
         int amount;
         double price;
         float vat;
+        showProducts(availableProducts);
+        cout << "Edycja nazwy produktu: ";
+        cin.ignore();
+        getline(cin,productName);
+        cout << "Podaj ilosc: ";
+        cin >> amount;
+        cout << "Podaj VAT: ";
+        cin >> vat;
+        cout << "Podaj ceny: ";
+        cin >> price;
+
+        float value = price * amount * (1 + (vat/100));
+        cout << "Podaj metode platnosci: ";
+        // ????
+        orders[orderNumber].setProduct(productName);
+        orders[orderNumber].setAmount(amount);
+        orders[orderNumber].setVat(vat);
+        orders[orderNumber].setPrice(price);
+        orders[orderNumber].setValue(value);
+        orders[orderNumber].setClientName(clientName);
+        orders[orderNumber].setPaymentMethod(type);
+        cout << "Zmieniono dane zamowienia" << endl;
+    }
+    else{
+        cout << "Nieprawidlowy numer zamowienia" << endl;
     }
 }
 
